@@ -36,17 +36,17 @@ export default function TextForm(props) {
         <h1>{props.heading}</h1>
         <div className="mb-3">
             <label htmlFor="myBox" className='form-label' >Example textarea</label>
-            <textarea className="form-control" id="myBox" rows="8" value={text} onChange={handleOnChange} style={{backgroundColor:props.mode==='light'?'white':'grey', color:props.mode==='light'?'black':'white'}}></textarea>
+            <textarea className="form-control" id="myBox" rows="8" value={text} onChange={handleOnChange} style={{backgroundColor:props.mode==='light'?'white':'#13466e', color:props.mode==='light'?'black':'white'}}></textarea>
         </div>
         <button className="btn btn-primary" onClick={handleUpClick}>Convert to UpperCase</button>
-        <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to Lowercase</button>
-        <button className="btn btn-primary mx-2" onClick={handleClearText}>Clear Entire Text</button>
-        <button className="btn btn-primary mx-2" onClick={handleTrimText}>Trim the Text</button>
-        <button className="btn btn-primary mx-2" onClick={handleCopyText}>Copy Entire Text</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>Convert to Lowercase</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleClearText}>Clear Entire Text</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleTrimText}>Trim the Text</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleCopyText}>Copy Entire Text</button>
     </div>
     <div className={`container my-5 text-${props.mode==='light'?'dark':'light'}`}>
         <h2>Your Text Summary</h2>
-        <p>{text.split.length} words and {text.length} characters</p>
+        <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
         <p>{0.008*text.length} Minutes read</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Enter the text in above textbox to preview here."}</p>
